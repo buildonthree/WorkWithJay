@@ -3,7 +3,7 @@ export async function GET(request: Request) {
   return new Response(
     JSON.stringify({
       msg: 'hello world',
-      app: 'cook',
+      app: 'WorkWithJay',
       version: '0.5.0',
     }),
     {

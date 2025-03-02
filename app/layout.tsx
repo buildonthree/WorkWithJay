@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-
+import ImageKitProvider from "@/providers/imagekit-provider";
+import { NavbarMainDemo } from "@/components/layouts/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "engage-cook",
-  description: "built using next.js, magic-ui, and tailwindcss",
+  title: "Put Jay to Work",
+  description: "Your Friendly Ecommere Expert here to help you grow your business",
 };
 
 export default function RootLayout({
@@ -22,18 +23,27 @@ export default function RootLayout({
         <script
           defer
           src="https://cloud.umami.is/script.js"
-          data-website-id="e2279467-b5f6-4e9d-8b62-869876b433f9"
+          data-website-id="72191f71-6cde-4bb3-ad73-d07f40082464"
         ></script>
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ImageKitProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div vaul-drawer-wrapper="" className="bg-background min-h-screen">
+              <div className="w-full flex items-center justify-center max-w-5xl mx-auto">
+                <div className="w-full">
+                  <NavbarMainDemo />
+                </div>
+              </div>
+              {children}
+            </div>
+          </ThemeProvider>
+        </ImageKitProvider>
         <Toaster />
       </body>
     </html>
